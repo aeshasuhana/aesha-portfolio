@@ -77,11 +77,11 @@ themeToggle.addEventListener("click", () => {
 // ================= CONTACT FORM DEMO =================
 // This is only a front-end demo message.
 // To make it actually send emails, connect it with EmailJS / Formspree / backend.
-const contactForm = document.getElementById("contactForm");
-const formMessage = document.getElementById("formMessage");
+//const contactForm = document.getElementById("contactForm");
+//const formMessage = document.getElementById("formMessage");
 
-contactForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  formMessage.textContent = "Message submitted successfully! (Demo form — connect a backend or EmailJS for real messages.)";
+//contactForm.addEventListener("submit", function (e) {
+  //e.preventDefault();
+  //formMessage.textContent = "Message submitted successfully! (Demo form — connect a backend or EmailJS for real messages.)";
   contactForm.reset();
-});
+//});
