@@ -74,14 +74,35 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
-// ================= CONTACT FORM DEMO =================
-// This is only a front-end demo message.
-// To make it actually send emails, connect it with EmailJS / Formspree / backend.
-//const contactForm = document.getElementById("contactForm");
-//const formMessage = document.getElementById("formMessage");
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
 
-//contactForm.addEventListener("submit", function (e) {
-  //e.preventDefault();
-  //formMessage.textContent = "Message submitted successfully! (Demo form — connect a backend or EmailJS for real messages.)";
-  contactForm.reset();
-//});
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mbdvwpod", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (response.ok) {
+        formStatus.textContent = "Message sent successfully!";
+        formStatus.style.color = "green";
+        contactForm.reset();
+      } else {
+        formStatus.textContent = "Failed to send message. Please try again.";
+        formStatus.style.color = "red";
+      }
+    } catch (error) {
+      formStatus.textContent = "Something went wrong. Please try again later.";
+      formStatus.style.color = "red";
+    }
+  });
+}

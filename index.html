@@ -472,27 +472,15 @@
           </div>
         </div>
 
-        <form 
-         class="contact-form" 
-         action="https://formspree.io/f/mbdvwpod" 
-         method="POST"
+        <form id="contact-form" class="contact-form">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="text" name="subject" placeholder="Subject" required>
+  <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
 
-         <input type="hidden" name="_subject" value="New Portfolio Contact Message">
-         <input type="hidden" name="_next" value="https://aeshasuhana.github.io/aesha-portfolio/thankyou.html">
->
-         <input type="hidden" name="_subject" value="New Portfolio Contact Message">
-         <input type="hidden" name="_next" value="https://aeshasuhana.github.io/aesha-portfolio/thankyou.html">
->
-         <input type="text" name="name" placeholder="Your Name" required>
-  
-         <input type="email" name="email" placeholder="Your Email" required>
-  
-         <input type="text" name="subject" placeholder="Subject" required>
-  
-         <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-  
-         <button type="submit" class="btn primary-btn">Send Message</button>
-        </form>
+  <button type="submit" class="btn primary-btn">Send Message</button>
+  <p id="form-status"></p>
+</form>
       </div>
     </div>
   </section>
