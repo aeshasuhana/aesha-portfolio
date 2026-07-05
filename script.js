@@ -81,6 +81,9 @@ if (contactForm) {
   contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    formStatus.textContent = "Sending...";
+    formStatus.style.color = "#555";
+
     const formData = new FormData(contactForm);
 
     try {
@@ -92,17 +95,21 @@ if (contactForm) {
         }
       });
 
+      const result = await response.json().catch(() => ({}));
+
       if (response.ok) {
         formStatus.textContent = "Message sent successfully!";
         formStatus.style.color = "green";
         contactForm.reset();
       } else {
-        formStatus.textContent = "Failed to send message. Please try again.";
+        formStatus.textContent =
+          result?.errors?.[0]?.message || "Failed to send message. Please try again.";
         formStatus.style.color = "red";
       }
     } catch (error) {
-      formStatus.textContent = "Something went wrong. Please try again later.";
+      formStatus.textContent = "Something went wrong. Please check your internet or Formspree setup.";
       formStatus.style.color = "red";
+      console.error("Form submission error:", error);
     }
   });
 }

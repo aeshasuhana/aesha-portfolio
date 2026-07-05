@@ -665,6 +665,11 @@ body.dark-mode .header {
   color: var(--primary);
   font-weight: 600;
 }
+.form-status {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
 
 /* ================= FOOTER ================= */
 .footer {
